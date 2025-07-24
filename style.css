@@ -17,6 +17,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 html,
@@ -29,16 +30,43 @@ body {
     overflow-x: hidden;
 }
 
+#main {
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    perspective: 1000px;
+    z-index: 1;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: fixed;
+}
+
+#cursor {
+    height: 25px;
+    width: 25px;
+    background: white;
+    filter: blur(10px);
+    border-radius: 50%;
+    z-index: 99;
+    position: fixed;
+    transition: all linear 0.1s;
+    pointer-events: none;
+}
+
 #page1 {
     min-height: 100vh;
     width: 100%;
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
 #navbar {
     height: 10vh;
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,26 +83,27 @@ body {
     font-weight: 600;
 }
 
-#navbar i {
-    font-size: 1.2vw;
-    background-color: rgba(255, 255, 255, 0.432);
+#navbarI {
+    font-size: 1.5vh;
+    /* background-color: rgba(255, 255, 255, 0.432); */
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    position: fixed;
+    right: 2%;
 }
 
-#navbar i:hover {
+#navbarI:hover {
     background-color: rgba(255, 255, 255, 0.664);
 }
 
 #menu {
-    height: 50vh;
-    width: 15vw;
-    background-color: rgba(0, 255, 255, 0.274);
+    /* height: 50vh;
+    width: 18vw; */
+    /* background-color: rgba(0, 255, 255, 0.274); */
     position: absolute;
-    top: 4;
-    right: -15vw;
-    backdrop-filter: blur(10px);
+    right: -18vw;
+    /* backdrop-filter: blur(5px); */
     text-align: left;
     padding: 3%;
 }
@@ -86,8 +115,8 @@ body {
 }
 
 #cross {
-    background-color: rgba(255, 255, 255, 0.432);
-    font-size: 1vw;
+    /* background-color: rgba(255, 255, 255, 0.432); */
+    font-size: 1.5vh;
     padding: 10px;
     border-radius: 50%;
     position: absolute;
@@ -98,4 +127,61 @@ body {
 
 #cross:hover {
     background-color: rgba(255, 255, 255, 0.664);
+    cursor: pointer;
+}
+
+.menuH3 {
+    padding: 5px;
+}
+
+.menuH3:hover {
+    background: #00000017;
+    -webkit-text-stroke: 0.5px #ffffff;
+    color: black;
+    cursor: pointer;
+}
+
+.menuI {
+    padding: 0 10px;
+}
+
+#page1h1 {
+    width: 90%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-transform: uppercase;
+    padding: 25px;
+    font-size: 2.5vw;
+    background: #00000080;
+    text-align: center;
+}
+
+#page1h1 span {
+    display: inline-block;
+}
+
+#linkedinBtn {
+    height: 7vh;
+    width: 10vw;
+    background: transparent;
+    border: 2px solid white;
+    font-size: 2.5vw;
+    border-radius: 14px;
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#linkedinBtn i {
+    font-size: 3.5vh;
+}
+
+#linkedinBtn i:hover {
+    cursor: pointer;
 }
