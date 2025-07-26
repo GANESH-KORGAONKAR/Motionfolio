@@ -8,6 +8,29 @@ function cursor() {
   });
 }
 
+function navh1() {
+  let page1h1 = document.querySelector("#navbarh1");
+  let navbarh1Text = navbarh1.textContent;
+  let splittedWords = navbarh1Text.split(" "); 
+  let clutter = "";
+
+  // Wrap each word in a span and add a space after it
+  splittedWords.forEach((word) => {
+    clutter += `<span class="word">${word}&nbsp;</span>`;
+  });
+
+  page1h1.innerHTML = clutter;
+
+  // Animate each word from left to right
+  gsap.from("#navbarh1 .word", {
+    x: -150, 
+    opacity: 0, // fade in
+    duration: 0.8, // animation speed for each word
+    stagger: 0.4, // delay between words
+    ease: "power2.out",
+  });
+}
+
 function navAndMenu() {
   let nav = document.querySelector("#navbar i");
   let cross = document.querySelector("#cross");
@@ -45,50 +68,6 @@ function navAndMenu() {
   });
 }
 
-let page1h1 = document.querySelector("#page1h1");
-let page1h1Text = page1h1.textContent;
-let splittedText = page1h1Text.split("");
-let halfValue = splittedText.length / 2;
-let clutter = "";
-
-// splittedText.forEach((element, idx) => {
-//     if (idx < halfValue) {
-//         clutter += `<span class="a">${element}</span>`;
-//     }else{
-//         clutter += `<span class="b">${element}</span>`;
-//     }
-
-// });
-
-// loop through each character and wrap in span with class a or b
-splittedText.forEach((element, idx) => {
-  // Replace space character with &nbsp; to preserve spacing
-  let char = element === " " ? "&nbsp;" : element;
-
-  if (idx < halfValue) {
-    clutter += `<span class="a">${char}</span>`;
-  } else {
-    clutter += `<span class="b">${char}</span>`;
-  }
-});
-
-page1h1.innerHTML = clutter;
-
-gsap.from("#page1h1 .a", {
-  y: 100,
-  duration: 0.5,
-  delay: 0.5,
-  stagger: 0.1,
-  opacity: 0,
-});
-
-gsap.from("#page1h1 .b", {
-  y: 100,
-  duration: 0.5,
-  delay: 0.5,
-  stagger: -0.1,
-  opacity: 0,
-});
-
 cursor();
+navh1();
 navAndMenu();
