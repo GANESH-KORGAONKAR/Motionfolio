@@ -68,6 +68,8 @@ function navAndMenu() {
   });
 }
 
+
+
 cursor();
 navh1();
 navAndMenu();
